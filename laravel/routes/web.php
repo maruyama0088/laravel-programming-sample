@@ -24,6 +24,7 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
 
 Route::middleware([TraceLog::class])->group(function() {
     Route::get('', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('company', [App\Http\Controllers\HomeController::class, 'company'])->name('company');
     Route::get('login', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login');
     Route::post('login', [App\Http\Controllers\Auth\LoginController::class, 'login']);
     Route::get('logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
@@ -45,8 +46,8 @@ Route::middleware([TraceLog::class, 'auth:web'])->prefix('mypage')->group(functi
     Route::get('', [App\Http\Controllers\UserController::class, 'mypage']);
     Route::get('edit-password', [\App\Http\Controllers\UserController::class, 'showEditPassword']);
     Route::post('edit-password/complete', [\App\Http\Controllers\UserController::class, 'completeEditPassword']);
-}); 
+});
 
 Route::middleware([TraceLog::class, 'auth:admin'])->prefix('admin')->group(function() {
     Route::get('/dashboard', [App\Http\Controllers\OrderController::class, 'index']);
-}); 
+});
