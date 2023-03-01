@@ -42,4 +42,12 @@ class HomeController extends Controller
     {
         return view('pages.mailorder');
     }
+    /**
+     * プライバシーポリシーページ表示
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function privacy()
+    {
+        return view('pages.privacy');
+    }
 }
