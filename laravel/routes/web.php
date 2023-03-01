@@ -25,6 +25,7 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
 Route::middleware([TraceLog::class])->group(function() {
     Route::get('', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('company', [App\Http\Controllers\HomeController::class, 'company'])->name('company');
+    Route::get('mailorder', [App\Http\Controllers\HomeController::class, 'mailorder'])->name('mailorder');
     Route::get('login', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login');
     Route::post('login', [App\Http\Controllers\Auth\LoginController::class, 'login']);
     Route::get('logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');

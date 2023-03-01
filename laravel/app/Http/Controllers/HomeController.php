@@ -34,4 +34,12 @@ class HomeController extends Controller
     {
         return view('pages.company');
     }
+    /**
+     * 特商法ページ表示
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function mailorder()
+    {
+        return view('pages.mailorder');
+    }
 }
